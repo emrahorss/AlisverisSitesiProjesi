@@ -1,0 +1,28 @@
+﻿@model List<ShoppingProject.Data.Models.Category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="background-color:#141111"><a href="/Category/CategoryAdd" class="btn btn-success" style="background-color: #141111; color: #FFFFFF">Yeni Kategori Ekle</a><font face="Arial" color="#FF7F00" size="4">&nbsp; Kategoriler Listesi</font></div>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Kategori İsmi</th>
+        <th>Açıklama</th>
+        <th>Durum</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.CategoryID</td>
+            <td>@x.CategoryName</td>
+            <td>@x.CategoryDescription</td>
+            <td>@x.status</td>
+            <td><a href="/Category/CategoryDelete/@x.CategoryID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Category/CategoryGet/@x.CategoryID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>

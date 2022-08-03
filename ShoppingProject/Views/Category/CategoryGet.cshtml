@@ -1,0 +1,22 @@
+﻿@model ShoppingProject.Data.Models.Category
+@{
+    ViewData["Title"] = "CategoryGet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="background-color:#141111"><font face="Arial" color="#FF7F00" size="4">&nbsp; Kategori Güncelleme Sayfası</font></div>
+<br />
+@using (Html.BeginForm("CategoryUpdate", "Category", FormMethod.Post))
+{
+    @Html.Label("Kategori ID")
+    @Html.TextBoxFor(x => x.CategoryID, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kategori İsmi")
+    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Açıklama")
+    @Html.TextBoxFor(x => x.CategoryDescription, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning" style="background-color: #141111; color: #FFFFFF">Güncelle</button>
+}
+

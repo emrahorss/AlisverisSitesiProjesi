@@ -1,0 +1,31 @@
+﻿@model ShoppingProject.Data.Models.Food
+@{
+    ViewData["Title"] = "FoodAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="background-color:#141111"><font face="Arial" color="#FF7F00" size="4">&nbsp; Ürün Ekleme Sayfası</font></div>
+<br />
+@using (Html.BeginForm("FoodAdd", "Food", FormMethod.Post))
+{
+    @Html.Label("Ürün İsmi")
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+    @Html.Label("Stok")
+    @Html.TextBoxFor(x => x.Stock, new { @class = "form-control" })
+    <br />
+    @Html.Label("Fiyat")
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    <br />
+    @Html.Label("Resim URL")
+    @Html.TextBoxFor(x => x.ImageURL, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kategori İsmi")
+    @Html.DropDownListFor(x=>x.CategoryID,(List<SelectListItem>)ViewBag.v1,new {@class="form-control"})
+    <br />
+    @Html.Label("Açıklama")
+    @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success" style="background-color: #141111; color: #FFFFFF">Kaydet</button>
+}
+

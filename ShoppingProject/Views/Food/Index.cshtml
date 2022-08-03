@@ -1,0 +1,33 @@
+﻿@model List<ShoppingProject.Data.Models.Food>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="background-color:#141111"><a href="/Food/FoodAdd" class="btn btn-success" style="background-color: #141111; color: #FFFFFF">Yeni Ürün Ekle</a><font face="Arial" color="#FF7F00" size="4">&nbsp; Ürünler Listesi</font></div>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Ürün İsmi</th>
+        <th>Kategori İsmi</th>
+        <th>Fiyat</th>
+        <th>Stok</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.FoodID</td>
+            <td>@x.Name</td>
+            <td>@x.Category.CategoryName</td>
+            <td>@x.Price</td>
+            <td>@x.Stock</td>
+            <td><a href="/Food/FoodDelete/@x.FoodID" class="btn btn-danger">Sil</a></td>
+            <td><a href="#" class="btn btn-success">Güncelle</a></td>
+            <td><a href="#" class="btn btn-info">Detaylar</a></td>
+        </tr>
+    }
+</table>
+
