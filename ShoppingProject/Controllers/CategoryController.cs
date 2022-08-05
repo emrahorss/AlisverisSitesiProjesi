@@ -5,15 +5,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ShoppingProject.Data.Models;
+using X.PagedList;
 
 namespace ShoppingProject.Controllers
 {
     public class CategoryController : Controller
     {
         CategoryRepository categoryRepository = new CategoryRepository();
-        public IActionResult Index()
+        public IActionResult Index(int page=1)
         {
-            return View(categoryRepository.TList());
+            return View(categoryRepository.TList().ToPagedList(page, 8));
         }
         [HttpGet]
         public IActionResult CategoryAdd()

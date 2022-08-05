@@ -6,7 +6,7 @@ using ShoppingProject.Data.Models;
 
 namespace ShoppingProject.Repositories
 {
-    public class FoodRepository: GenericRepository<Food>
+    public class FoodRepository : GenericRepository<Food>
     {
     }
 }

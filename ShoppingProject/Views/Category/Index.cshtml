@@ -1,4 +1,7 @@
-﻿@model List<ShoppingProject.Data.Models.Category>
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core
+@model IPagedList<ShoppingProject.Data.Models.Category>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -26,3 +29,4 @@
         </tr>
     }
 </table>
+<center>@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))</center>

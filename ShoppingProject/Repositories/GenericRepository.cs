@@ -4,10 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace ShoppingProject.Repositories
 {
-    public class GenericRepository<T> where T : class,new()
+    public class GenericRepository<T> where T : class, new()
     {
         Context c = new Context();
         public List<T> TList()
@@ -36,6 +37,10 @@ namespace ShoppingProject.Repositories
         public List<T> TList(string p)
         {
             return c.Set<T>().Include(p).ToList();
+        }
+        public List<T> List(Expression<Func<T, bool>> filter)
+        {
+            return c.Set<T>().Where(filter).ToList();
         }
     }
 }
